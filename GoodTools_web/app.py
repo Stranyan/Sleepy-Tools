@@ -4,7 +4,7 @@ from datetime import datetime, timedelta
 from flask import Flask, render_template, request, jsonify, redirect, Response
 from flask_sqlalchemy import SQLAlchemy
 
-import float32to10
+from function import float32to10
 from collections import OrderedDict
 
 app = Flask(__name__)
@@ -14,28 +14,33 @@ app = Flask(__name__)
 @app.route('/function/get_db_table_data', methods=['GET', 'POST'])
 def get_db_table_data():
     # 重新连接到数据库
+    # conn = sqlite3.connect(r'database\powerping.db')
     conn = sqlite3.connect('powerping.db')
     cursor = conn.cursor()
 
-    # 从表格中读取数据，并按照 Timestamp 字段进行降序排序
-    cursor.execute("SELECT * FROM ping_results ORDER BY Timestamp DESC")
-    rows = cursor.fetchall()
+    try:
+        # 从表格中读取数据，并按照 Timestamp 字段进行降序排序
+        cursor.execute("SELECT * FROM ping_results ORDER BY Timestamp DESC")
+        rows = cursor.fetchall()
 
-    # 关闭连接
-    conn.close()
-    time_list = [{'Timestamp': row[6]} for row in rows]
-    unique_times = list(set(row['Timestamp'] for row in time_list))
-    current_time = datetime.now()
-    # 计算unique_times列表中每个时间和当前时间的间隔大小
-    time_gaps = [(time, abs(current_time - datetime.strptime(time, "%Y-%m-%d %H:%M:%S"))) for time in unique_times]
-    # 找到时间间隔最小的时间
-    min_time, min_gap = min(time_gaps, key=lambda x: x[1])
-    # 筛选出时间间隔为最小间隔的行数据
-    filtered_data = [row for row in rows if row[6] == min_time]
-    # 将数据转换为 JSON 格式
-    json_data = [{'IP': row[0], 'Status': row[1], 'Delay': row[2], 'TTL': row[3], 'MAC': row[4], 'Hardware': row[5], 'Timestamp': row[6]} for row in filtered_data]
-    # 返回 JSON 格式数据给前端
-    return jsonify(json_data)
+        # 关闭连接
+        conn.close()
+        time_list = [{'Timestamp': row[6]} for row in rows]
+        unique_times = list(set(row['Timestamp'] for row in time_list))
+        current_time = datetime.now()
+        # 计算unique_times列表中每个时间和当前时间的间隔大小
+        time_gaps = [(time, abs(current_time - datetime.strptime(time, "%Y-%m-%d %H:%M:%S"))) for time in unique_times]
+        # 找到时间间隔最小的时间
+        min_time, min_gap = min(time_gaps, key=lambda x: x[1])
+        # 筛选出时间间隔为最小间隔的行数据
+        filtered_data = [row for row in rows if row[6] == min_time]
+        # 将数据转换为 JSON 格式
+        json_data = [{'IP': row[0], 'Status': row[1], 'Delay': row[2], 'TTL': row[3], 'MAC': row[4], 'Hardware': row[5], 'Timestamp': row[6]} for row in filtered_data]
+        # 返回 JSON 格式数据给前端
+        return jsonify(json_data)
+    except Exception as e:
+        print(e)
+        return jsonify([{'IP': 'None', 'Status': 'None', 'Delay': 'None', 'TTL': 'None', 'MAC': 'None', 'Hardware': 'None', 'Timestamp': 'None'}])
 
 @app.route('/function/get_db_status_counts',methods=['GET','POST'])#路由
 def get_db_status_counts():
@@ -44,18 +49,22 @@ def get_db_status_counts():
     conn = sqlite3.connect('powerping.db')
     cursor = conn.cursor()
 
-    # 从表格中读取数据
-    cursor.execute("SELECT * FROM ping_results")
-    rows = cursor.fetchall()
-    # 关闭连接
-    conn.close()
+    try:
+        # 从表格中读取数据
+        cursor.execute("SELECT * FROM ping_results")
+        rows = cursor.fetchall()
+        # 关闭连接
+        conn.close()
 
-    # 计算出True和False的数量
-    true_count = sum(1 for row in rows if row[1] == '1')  # 假设Status列在第二个位置
-    print('true_count', true_count)
-    false_count = sum(1 for row in rows if row[1] == '0')
-    print('false_count', false_count)
-    return jsonify({'true_count': true_count, 'false_count': false_count})
+        # 计算出True和False的数量
+        true_count = sum(1 for row in rows if row[1] == '1')  # 假设Status列在第二个位置
+        print('true_count', true_count)
+        false_count = sum(1 for row in rows if row[1] == '0')
+        print('false_count', false_count)
+        return jsonify({'true_count': true_count, 'false_count': false_count})
+    except Exception as e:
+        print(e)
+        return jsonify({'true_count': 99, 'false_count': 1})
 
 @app.route('/function/convert_hex')
 def get_data():
@@ -63,11 +72,9 @@ def get_data():
     if hex_str is None:
         return jsonify({})  # 返回一个空的 JSON 对象
     else:
-        data = OrderedDict()
+        data = {}
         data = float32to10.main_app(hex_str)
-        print(data)
-        print(json.dumps(data, indent=4, ensure_ascii=False)) 
-        # return jsonify(**data)
+        # return jsonify(data)
         return Response(json.dumps(data), mimetype='application/json')
 
 @app.route('/')
@@ -106,6 +113,10 @@ def table():
 @app.route('/ui-elements.html')
 def ui_elements():
     return render_template('ui-elements.html')
+
+@app.route('/tools_convert_hex')
+def tools_convert_hex():
+    return render_template('tools_convert_hex.html')
 
 # 定义错误处理程序，用于处理所有未定义路由的情况
 @app.errorhandler(404)

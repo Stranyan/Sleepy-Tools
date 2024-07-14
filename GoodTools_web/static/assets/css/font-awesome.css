@@ -1169,6 +1169,9 @@
 .fa-file:before {
   content: "\f15b";
 }
+.fa-tools:before {
+  content: "\f188";
+}
 .fa-file-text:before {
   content: "\f15c";
 }

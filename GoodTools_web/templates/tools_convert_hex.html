@@ -1,37 +1,29 @@
 ﻿<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>优效</title>
-        <link rel="icon" type="image/x-icon" href="{{ url_for('static',filename='img/favicon.ico') }}" />
-            <!-- Bootstrap Styles-->
-        <!-- <link href="assets/css/bootstrap.css" rel="stylesheet" /> -->
-        <link href="{{ url_for('static',filename='assets/css/bootstrap.css') }}" rel="stylesheet" />
-        <!-- FontAwesome Styles-->
-        <!-- <link href="assets/css/font-awesome.css" rel="stylesheet" /> -->
-        <link href="{{ url_for('static',filename='assets/css/font-awesome.css') }}" rel="stylesheet" />
-        <!-- Morris Chart Styles-->
-        <!-- <link href="assets/js/morris/morris-0.4.3.min.css" rel="stylesheet" /> -->
-        <link href="{{ url_for('static',filename='assets/js/morris/morris-0.4.3.min.css') }}" rel="stylesheet" />
-        <!-- Custom Styles-->
-        <!-- <link href="assets/css/custom-styles.css" rel="stylesheet" /> -->
-        <link href="{{ url_for('static',filename='assets/css/custom-styles.css') }}" rel="stylesheet" />
-        <!-- Google Fonts-->
-        <!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' /> -->
-        <link href="{{ url_for('static',filename='http://fonts.googleapis.com/css?family=Open+Sans') }}" rel="stylesheet" />
-    </head>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Free Bootstrap Admin Template : Dream</title>
+	<!-- Bootstrap Styles-->
+    <link href="{{ url_for('static',filename='assets/css/bootstrap.css') }}" rel="stylesheet" />
+    <!-- FontAwesome Styles-->
+    <link href="{{ url_for('static',filename='assets/css/font-awesome.css') }}" rel="stylesheet" />
+    <!-- Custom Styles-->
+    <link href="{{ url_for('static',filename='assets/css/custom-styles.css') }}" rel="stylesheet" />
+    <!-- Google Fonts-->
+    <link href="{{ url_for('static',filename='http://fonts.googleapis.com/css?family=Open+Sans') }}" rel="stylesheet" />
+</head>
 <body>
     <div id="wrapper">
         <nav class="navbar navbar-default top-navbar" role="navigation">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
-                    <span class="sr-only">切换导航</span>
+                    <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">优效</a>
+                <a class="navbar-brand" href="index.html">Dream</a>
             </div>
 
             <ul class="nav navbar-top-links navbar-right">
@@ -255,7 +247,7 @@
                         <a href="ui-elements.html"><i class="fa fa-desktop"></i>元素</a>
                     </li>
 					<li>
-                        <a href="chart.html" class="active-menu"><i class="fa fa-bar-chart-o"></i>图表</a>
+                        <a href="chart.html"><i class="fa fa-bar-chart-o"></i>图表</a>
                     </li>
                     <li>
                         <a href="tab-panel.html"><i class="fa fa-qrcode"></i>面板</a>
@@ -267,6 +259,8 @@
                     <li>
                         <a href="form.html"><i class="fa fa-edit"></i>问卷</a>
                     </li>
+
+
                     <li>
                         <a href="#"><i class="fa fa-sitemap"></i>多级下拉菜单<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
@@ -295,7 +289,7 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="tools.html"><i class="fa fa-fw fa-tools"></i>工具</a>
+                        <a class="active-menu" href="tools.html"><i class="fa fa-fw fa-tools"></i>工具</a>
                     </li>
                     <li>
                         <a href="empty.html"><i class="fa fa-fw fa-file"></i>关于</a>
@@ -311,62 +305,30 @@
 			 <div class="row">
                     <div class="col-md-12">
                         <h1 class="page-header">
-                            图表 <small>详细信息</small>
+                            Empty Page <small>Create new page.</small>
                         </h1>
+                        <div class="form-group">
+                            <label for="inputField">Input Field:</label>
+                            <input id="hexInput" class="form-control" placeholder="输入十六进制数值">
+                        </div>
+                        <button id="submitBtn" type="button" class="btn btn-default">提交</button>
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                    <thead>
+                                        <tr>
+                                            <th>类型</th>
+                                            <th>数值</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="table-body">
+                                        <!-- 表格内容将在 JavaScript 中动态生成 -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                     </div>
                 </div> 
-                 <!-- /. ROW  -->
-             
-                <div class="row"> 
-                    
-                      
-                               <div class="col-md-6 col-sm-12 col-xs-12">                     
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            Bar Chart
-                        </div>
-                        <div class="panel-body">
-                            <div id="morris-bar-chart"></div>
-                        </div>
-                    </div>            
-                </div>
-                      <div class="col-md-6 col-sm-12 col-xs-12">                     
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            Area Chart
-                        </div>
-                        <div class="panel-body">
-                            <div id="morris-area-chart"></div>
-                        </div>
-                    </div>            
-                </div> 
-                
-           </div>
-                 <!-- /. ROW  -->
-                <div class="row">                     
-                      
-                               <div class="col-md-6 col-sm-12 col-xs-12">                     
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            Donut Chart
-                        </div>
-                        <div class="panel-body">
-                            <div id="morris-line-chart"></div>
-                        </div>
-                    </div>            
-                </div>
-                      <div class="col-md-6 col-sm-12 col-xs-12">                     
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            Line Chart
-                        </div>
-                        <div class="panel-body">                            
-							<div id="morris-donut-chart"></div>
-                        </div>
-                    </div>            
-                </div> 
-                
-           </div>
                  <!-- /. ROW  -->
 				 <footer><p>All right reserved. Template by: <a href="http://webthemez.com">WebThemez</a></p></footer>
 				</div>
@@ -374,26 +336,111 @@
             </div>
          <!-- /. PAGE WRAPPER  -->
         </div>
-    <!-- /. WRAPPER  -->
+     <!-- /. WRAPPER  -->
     <!-- JS Scripts-->
     <!-- jQuery Js -->
-    <!-- <script src="assets/js/jquery-1.10.2.js"></script> -->
     <script src="{{ url_for('static',filename='assets/js/jquery-1.10.2.js') }}"></script>
+    <!-- <script>
+        $(document).ready(function() {
+            console.log('Document is ready.');
+            // 使用jQuery的ajax方法从Flask后端获取数据
+            $.ajax({
+                url: '/function/convert_hex',
+                method: 'GET',
+                success: function(data) {
+                    console.log('Cooooooo:', data);
+                    // 更新表格中的数据
+                    $('#key_1').text(data.hex_value);
+                    $('#value_1').text(data.int_big_endian);
+                },
+                error: function(error) {
+                    console.error('Error fetching data:', error);
+                }
+            });
+        });
+    </script> -->
+    <script>
+        $(document).ready(function() {
+            // 第一个 AJAX 请求，处理按钮点击事件
+            $('#submitBtn').click(function() {
+                var hexStr = $('#hexInput').val();  // 获取输入框的值
+                $.ajax({
+                    url: '/function/convert_hex',
+                    method: 'GET',
+                    data: {'hex_str': hexStr},  // 将输入值作为参数传递给 Flask 路由
+                    success: function(data) {
+                        console.log('Received data:', data);
+                        // 更新页面上的数据，假设你有对应的 HTML 结构进行更新
+                        $('#key_1').text('十六进制');
+                        $('#value_1').text(data.int_big_endian);
+                        
+                        // 清空表格内容并动态生成新数据
+                        $('#table-body').empty();
+                        var index = 1;
+                        $.each(data, function(key, value) {
+                            var rowClass = index % 2 === 0 ? 'even gradeC' : 'odd gradeA';
+                            var html = '<tr class="' + rowClass + '">' +
+                                           '<td>' + key + '</td>' +
+                                           '<td>' + value + '</td>' +
+                                       '</tr>';
+                            $('#table-body').append(html);
+                            index++;
+                        });
+                    },
+                    error: function(error) {
+                        console.error('Error fetching data:', error);
+                    }
+                });
+            });
+    
+            // 第二个 AJAX 请求，页面加载时执行
+            console.log('Document is ready.');
+            $.ajax({
+                url: '/function/convert_hex',
+                method: 'GET',
+                success: function(data) {
+                    console.log('Received data:', data);
+                    
+                    // 清空现有表格内容，准备填充新数据
+                    $('#table-body').empty();
+                    
+                    // 获取数据的键的顺序
+                    var keys = Object.keys(data);
+                    
+                    // 遍历键值对，动态生成表格行
+                    for (var i = 0; i < keys.length; i++) {
+                        var key = keys[i];
+                        var value = data[key];
+                        
+                        // 判断行的奇偶性，设置不同的样式类
+                        var rowClass = i % 2 === 0 ? 'even gradeC' : 'odd gradeA';
+                        
+                        // 生成表格行的 HTML
+                        var html = '<tr class="' + rowClass + '">' +
+                                       '<td>' + key + '</td>' +
+                                       '<td>' + value + '</td>' +
+                                   '</tr>';
+                        
+                        // 将生成的行添加到表格中
+                        $('#table-body').append(html);
+                    }
+                },
+                error: function(error) {
+                    console.error('Error fetching data:', error);
+                }
+            });
+        });
+    </script> 
     <!-- Bootstrap Js -->
-    <!-- <script src="assets/js/bootstrap.min.js"></script> -->
     <script src="{{ url_for('static',filename='assets/js/bootstrap.min.js') }}"></script>
     <!-- Metis Menu Js -->
-    <!-- <script src="assets/js/jquery.metisMenu.js"></script> -->
     <script src="{{ url_for('static',filename='assets/js/jquery.metisMenu.js') }}"></script>
-    <!-- Morris Chart Js -->
-    <!-- <script src="assets/js/morris/raphael-2.1.0.min.js"></script> -->
-    <script src="{{ url_for('static',filename='assets/js/morris/raphael-2.1.0.min.js') }}"></script>
-    <!-- <script src="assets/js/morris/morris.js"></script> -->
-    <script src="{{ url_for('static',filename='assets/js/morris/morris.js') }}"></script>
     <!-- Custom Js -->
-    <!-- <script src="assets/js/custom-scripts.js"></script> -->
     <script src="{{ url_for('static',filename='assets/js/custom-scripts.js') }}"></script>
-    
-   
+    <!-- 引入Morris.js
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script> -->
+
 </body>
 </html>

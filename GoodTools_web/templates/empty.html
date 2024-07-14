@@ -1,10 +1,12 @@
 ﻿<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Free Bootstrap Admin Template : Dream</title>
-	<!-- Bootstrap Styles-->
+    <title>优效</title>
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static',filename='img/favicon.ico') }}" />
+    <!-- Bootstrap Styles-->
     <link href="{{ url_for('static',filename='assets/css/bootstrap.css') }}" rel="stylesheet" />
     <!-- FontAwesome Styles-->
     <link href="{{ url_for('static',filename='assets/css/font-awesome.css') }}" rel="stylesheet" />
@@ -13,17 +15,18 @@
     <!-- Google Fonts-->
     <link href="{{ url_for('static',filename='http://fonts.googleapis.com/css?family=Open+Sans') }}" rel="stylesheet" />
 </head>
+
 <body>
     <div id="wrapper">
         <nav class="navbar navbar-default top-navbar" role="navigation">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
+                    <span class="sr-only">切换导航</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">Dream</a>
+                <a class="navbar-brand" href="index.html">优效</a>
             </div>
 
             <ul class="nav navbar-top-links navbar-right">
@@ -40,7 +43,8 @@
                                         <em>Today</em>
                                     </span>
                                 </div>
-                                <div>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s...</div>
+                                <div>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s...
+                                </div>
                             </a>
                         </li>
                         <li class="divider"></li>
@@ -52,7 +56,8 @@
                                         <em>Yesterday</em>
                                     </span>
                                 </div>
-                                <div>Lorem Ipsum has been the industry's standard dummy text ever since an kwilnw...</div>
+                                <div>Lorem Ipsum has been the industry's standard dummy text ever since an kwilnw...
+                                </div>
                             </a>
                         </li>
                         <li class="divider"></li>
@@ -91,7 +96,8 @@
                                         <span class="pull-right text-muted">60% Complete</span>
                                     </p>
                                     <div class="progress progress-striped active">
-                                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+                                        <div class="progress-bar progress-bar-success" role="progressbar"
+                                            aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
                                             <span class="sr-only">60% Complete (success)</span>
                                         </div>
                                     </div>
@@ -107,7 +113,8 @@
                                         <span class="pull-right text-muted">28% Complete</span>
                                     </p>
                                     <div class="progress progress-striped active">
-                                        <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="28" aria-valuemin="0" aria-valuemax="100" style="width: 28%">
+                                        <div class="progress-bar progress-bar-info" role="progressbar"
+                                            aria-valuenow="28" aria-valuemin="0" aria-valuemax="100" style="width: 28%">
                                             <span class="sr-only">28% Complete</span>
                                         </div>
                                     </div>
@@ -123,7 +130,8 @@
                                         <span class="pull-right text-muted">60% Complete</span>
                                     </p>
                                     <div class="progress progress-striped active">
-                                        <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+                                        <div class="progress-bar progress-bar-warning" role="progressbar"
+                                            aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
                                             <span class="sr-only">60% Complete (warning)</span>
                                         </div>
                                     </div>
@@ -139,7 +147,8 @@
                                         <span class="pull-right text-muted">85% Complete</span>
                                     </p>
                                     <div class="progress progress-striped active">
-                                        <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 85%">
+                                        <div class="progress-bar progress-bar-danger" role="progressbar"
+                                            aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 85%">
                                             <span class="sr-only">85% Complete (danger)</span>
                                         </div>
                                     </div>
@@ -241,46 +250,44 @@
                 <ul class="nav" id="main-menu">
 
                     <li>
-                        <a href="index.html"><i class="fa fa-dashboard"></i> Dashboard</a>
+                        <a href="index.html"><i class="fa fa-dashboard"></i>控制台</a>
                     </li>
                     <li>
-                        <a href="ui-elements.html"><i class="fa fa-desktop"></i> UI Elements</a>
-                    </li>
-					<li>
-                        <a href="chart.html"><i class="fa fa-bar-chart-o"></i> Charts</a>
+                        <a href="ui-elements.html"><i class="fa fa-desktop"></i>元素</a>
                     </li>
                     <li>
-                        <a href="tab-panel.html"><i class="fa fa-qrcode"></i> Tabs & Panels</a>
-                    </li>
-                    
-                    <li>
-                        <a href="table.html"><i class="fa fa-table"></i> Responsive Tables</a>
+                        <a href="chart.html"><i class="fa fa-bar-chart-o"></i>图表</a>
                     </li>
                     <li>
-                        <a href="form.html"><i class="fa fa-edit"></i> Forms </a>
+                        <a href="tab-panel.html"><i class="fa fa-qrcode"></i>面板</a>
                     </li>
 
-
                     <li>
-                        <a href="#"><i class="fa fa-sitemap"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>
+                        <a href="table.html"><i class="fa fa-table"></i>表格</a>
+                    </li>
+                    <li>
+                        <a href="form.html"><i class="fa fa-edit"></i>问卷</a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-sitemap"></i>多级下拉菜单<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="#">Second Level Link</a>
+                                <a href="#">二级链接1</a>
                             </li>
                             <li>
-                                <a href="#">Second Level Link</a>
+                                <a href="#">二级链接2</a>
                             </li>
                             <li>
-                                <a href="#">Second Level Link<span class="fa arrow"></span></a>
+                                <a href="#">二级链接3<span class="fa arrow"></span></a>
                                 <ul class="nav nav-third-level">
                                     <li>
-                                        <a href="#">Third Level Link</a>
+                                        <a href="#">三级链接1</a>
                                     </li>
                                     <li>
-                                        <a href="#">Third Level Link</a>
+                                        <a href="#">三级链接2</a>
                                     </li>
                                     <li>
-                                        <a href="#">Third Level Link</a>
+                                        <a href="#">三级链接3</a>
                                     </li>
 
                                 </ul>
@@ -289,7 +296,10 @@
                         </ul>
                     </li>
                     <li>
-                        <a class="active-menu" href="empty.html"><i class="fa fa-fw fa-file"></i> Empty Page</a>
+                        <a href="tools.html"><i class="fa fa-fw fa-tools"></i>工具</a>
+                    </li>
+                    <li>
+                        <a class="active-menu" href="empty.html"><i class="fa fa-fw fa-file"></i>关于</a>
                     </li>
                 </ul>
 
@@ -297,137 +307,28 @@
 
         </nav>
         <!-- /. NAV SIDE  -->
-        <div id="page-wrapper" >
+        <div id="page-wrapper">
             <div id="page-inner">
-			 <div class="row">
+                <div class="row">
                     <div class="col-md-12">
                         <h1 class="page-header">
-                            Empty Page <small>Create new page.</small>
+                            关于 <small>新未来</small>
                         </h1>
-                        <div class="form-group">
-                            <label for="inputField">Input Field:</label>
-                            <input id="hexInput" class="form-control" placeholder="输入十六进制数值">
-                        </div>
-                        <button id="submitBtn" type="button" class="btn btn-default">提交</button>
-                        <div class="panel-body">
-                            <div class="table-responsive">
-                                <table class="table table-striped table-bordered table-hover" id="dataTables-example">
-                                    <thead>
-                                        <tr>
-                                            <th>类型</th>
-                                            <th>数值</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="table-body">
-                                        <!-- 表格内容将在 JavaScript 中动态生成 -->
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
                     </div>
-                </div> 
-                 <!-- /. ROW  -->
-				 <footer><p>All right reserved. Template by: <a href="http://webthemez.com">WebThemez</a></p></footer>
-				</div>
-             <!-- /. PAGE INNER  -->
+                </div>
+                <!-- /. ROW  -->
+                <footer>
+                    <p>All right reserved. Template by: <a href="http://webthemez.com">WebThemez</a></p>
+                </footer>
             </div>
-         <!-- /. PAGE WRAPPER  -->
+            <!-- /. PAGE INNER  -->
         </div>
-     <!-- /. WRAPPER  -->
+        <!-- /. PAGE WRAPPER  -->
+    </div>
+    <!-- /. WRAPPER  -->
     <!-- JS Scripts-->
     <!-- jQuery Js -->
     <script src="{{ url_for('static',filename='assets/js/jquery-1.10.2.js') }}"></script>
-    <!-- <script>
-        $(document).ready(function() {
-            console.log('Document is ready.');
-            // 使用jQuery的ajax方法从Flask后端获取数据
-            $.ajax({
-                url: '/function/convert_hex',
-                method: 'GET',
-                success: function(data) {
-                    console.log('Cooooooo:', data);
-                    // 更新表格中的数据
-                    $('#key_1').text(data.hex_value);
-                    $('#value_1').text(data.int_big_endian);
-                },
-                error: function(error) {
-                    console.error('Error fetching data:', error);
-                }
-            });
-        });
-    </script> -->
-    <script>
-        $(document).ready(function() {
-            // 第一个 AJAX 请求，处理按钮点击事件
-            $('#submitBtn').click(function() {
-                var hexStr = $('#hexInput').val();  // 获取输入框的值
-                $.ajax({
-                    url: '/function/convert_hex',
-                    method: 'GET',
-                    data: {'hex_str': hexStr},  // 将输入值作为参数传递给 Flask 路由
-                    success: function(data) {
-                        console.log('Received data:', data);
-                        // 更新页面上的数据，假设你有对应的 HTML 结构进行更新
-                        $('#key_1').text('十六进制');
-                        $('#value_1').text(data.int_big_endian);
-                        
-                        // 清空表格内容并动态生成新数据
-                        $('#table-body').empty();
-                        var index = 1;
-                        $.each(data, function(key, value) {
-                            var rowClass = index % 2 === 0 ? 'even gradeC' : 'odd gradeA';
-                            var html = '<tr class="' + rowClass + '">' +
-                                           '<td>' + key + '</td>' +
-                                           '<td>' + value + '</td>' +
-                                       '</tr>';
-                            $('#table-body').append(html);
-                            index++;
-                        });
-                    },
-                    error: function(error) {
-                        console.error('Error fetching data:', error);
-                    }
-                });
-            });
-    
-            // 第二个 AJAX 请求，页面加载时执行
-            console.log('Document is ready.');
-            $.ajax({
-                url: '/function/convert_hex',
-                method: 'GET',
-                success: function(data) {
-                    console.log('Received data:', data);
-                    
-                    // 清空现有表格内容，准备填充新数据
-                    $('#table-body').empty();
-                    
-                    // 获取数据的键的顺序
-                    var keys = Object.keys(data);
-                    
-                    // 遍历键值对，动态生成表格行
-                    for (var i = 0; i < keys.length; i++) {
-                        var key = keys[i];
-                        var value = data[key];
-                        
-                        // 判断行的奇偶性，设置不同的样式类
-                        var rowClass = i % 2 === 0 ? 'even gradeC' : 'odd gradeA';
-                        
-                        // 生成表格行的 HTML
-                        var html = '<tr class="' + rowClass + '">' +
-                                       '<td>' + key + '</td>' +
-                                       '<td>' + value + '</td>' +
-                                   '</tr>';
-                        
-                        // 将生成的行添加到表格中
-                        $('#table-body').append(html);
-                    }
-                },
-                error: function(error) {
-                    console.error('Error fetching data:', error);
-                }
-            });
-        });
-    </script> 
     <!-- Bootstrap Js -->
     <script src="{{ url_for('static',filename='assets/js/bootstrap.min.js') }}"></script>
     <!-- Metis Menu Js -->
@@ -438,6 +339,6 @@
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
     <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script> -->
-
 </body>
+
 </html>
