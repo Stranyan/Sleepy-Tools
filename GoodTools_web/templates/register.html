@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>好听的名字</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('form').on('submit', function (event) {
+                event.preventDefault(); // 阻止表单默认提交行为
+
+                var formData = {
+                    username: $('input[name="username"]').val(),
+                    password: $('input[name="password"]').val(),
+                    email: $('input[name="email"]').val()
+                };
+
+                // 使用 AJAX 提交表单数据
+                fetch('/register', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formData) // 发送表单数据
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        // 注册成功，打印用户输入的信息到控制台
+                        console.log("注册成功，用户输入的信息：", formData);
+                        // 显示成功消息
+                        alert(data.message);
+                    })
+                    .catch(error => {
+                        // 处理错误
+                    });
+            });
+        });
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-image: url('/static/img/background.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .container {
+            background-color: white;
+            padding: 100px;
+            border-radius: 25px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        input {
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #5cb85c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #4cae4c;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>注册</h2>
+    <form action="/register" method="post">
+        <input type="text" name="username" placeholder="用户名" required>
+        <input type="password" name="password" placeholder="密码" required>
+        <input type="email" name="email" placeholder="电子邮件" required>
+        <button type="submit">注册</button>
+    </form>
+</div>
+</body>
+</html>
